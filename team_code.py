@@ -189,7 +189,7 @@ def run_model(model, header, recording):
 
     # Load features.
     num_leads = len(leads)
-    r_features = get_features(header, recording, twelve_leads)
+    r_features = get_features(header, recording, leads)
     names = [name for name in r_features.columns if name.split('__',maxsplit=1)[0] in leads]
     names.extend(['sex','age'])
     features = r_features[names].to_numpy().reshape(1,-1)
